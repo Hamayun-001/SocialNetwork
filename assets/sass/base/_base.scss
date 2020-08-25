@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  scroll-behavior: smooth;
+
+  //this is what defines 1rem.
+
+  //width >= 1201
+  font-size: 62.5%; //1rem =  10px    ,  10/16 = 62.5%
+
+  @include respond(tablet-landscape) {
+    //width <= 1200
+    font-size: 56.25%; //1rem =  9px  ,  9/16 = 56.25%
+  }
+  @include respond(tablet-portrait) {
+    //width <= 900
+    font-size: 50%; //1rem =  8px     ,  8/16 = 50%
+  }
+
+  @include respond(big-screen) {
+    //width >= 1800
+    font-size: 75%; //1rem =  12px    ,  12/16 = 75%
+  }
+}
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tablet-portrait) {
+    padding: 0rem;
+  }
+}
+::selection {
+  background-color: $color-primary-dark;
+  color: $color-white;
+  text-shadow: 0 1rem 3rem rgba($color-dark, 0.8);
+}
